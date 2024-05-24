@@ -1,45 +1,45 @@
-# Local Standard Notes to Markdown (Obsidian) Converter
+# Local Standard Notes to Markdown Converter
 
-A Python tool that converts your Standard Notes exports for seamless integration with Obsidian. Accurately migrates notes, preserving metadata as YAML frontmatter for optimal compatibility with Obsidian's tagging and organizational features.
-Additionally, it enhances filename compatibility by utilizing full-width characters, ensuring accurate local storage while preserving visual clarity.
-
-这款 Python 工具可以转换你的 Standard Notes 导出数据，实现与 Obsidian 的无缝衔接。它能精确迁移笔记内容，并将元数据保存为 YAML frontmatter，以确保与 Obsidian 的标签和组织功能完全兼容。 此外，该工具还通过使用全角字符增强了文件名的兼容性，确保在本地存储时文件名准确无误，同时保留视觉上的清晰度。
+A Python tool that converts Standard Notes exports to markdown files. Accurately migrates notes, preserving metadata as YAML frontmatter for optimal compatibility Obsidian's tagging features.
+Additionally, it enhances filename compatibility by utilizing full-width characters(zh_CN.UTF-8), ensuring accurate local storage while preserving visual clarity.
 
 ## Prerequisites
 
-* Python 3.10 or higher
+* Python 3.10 or higher (lower versions may work but are untested)
 * Standard Notes account with exported data
 
 ## Usage
 
 1. **Export your Standard Notes data:**
-   * Go to Standard Notes and choose the "Export" option.
-   * Select "Download as decrypted import file". You'll receive a single `.txt` file containing all your notes.
+    * Go to Standard Notes and choose the "Export" option.
+    * Select "Download as decrypted import file". You'll receive a single `.txt` file containing all your notes.
 
-2. **Place the exported `.txt` file in the same directory as the script.**
+2. **Place the exported `.txt` file in the same directory as the tool.**
 
-3. **(Optional) Modify the script arguments:**
-   * Open `main.py` in a text editor.
-   * Adjust the default values for `--input`, `--output`, and `--final` if needed. These arguments control the input file path, the intermediate folder for processed notes, and the final folder for renamed notes, respectively.
-
-4. **Run the script:**
-   * Open a terminal or command prompt.
-   * Navigate to the directory containing the script and the exported `.txt` file.
-   * Execute the following command:
+3. **Run the tool:**
+    * Open a terminal or command prompt.
+    * Navigate to the directory containing the tool and the exported `.txt` file.
+    * Execute the following command:
 
      ```bash
      python3 main.py
      ```
 
-   * You can also run the script with custom arguments:
+    * The default name for the file is `decrypted-sn-data.txt`, if you have a different name, rename it to `decrypted-sn-data.txt` or specify the file name as an argument.:
+  
+     ```bash
+     python3 main.py --input <path_to_input.txt>
+     ```
+
+    * You can also run the tool with custom arguments:
 
      ```bash
      python3 main.py --input <path_to_input.txt> --output <path_to_intermediate_folder> --final <path_to_final_folder>
      ```
 
-## Script Details
+## Tool Details
 
-The script performs the following steps:
+The tool performs the following steps:
 
 1. **Initialization (`init.py`):**
    * Reads the decrypted Standard Notes export file.
@@ -58,8 +58,13 @@ The script performs the following steps:
 
 ## Notes
 
-* The `tag.py` script is assumed to be in the same directory as `main.py` and `rename.py`.  You can adjust the script path in `main.py` if needed.
-* The script handles potential errors and logs them to `error.log`.
+* The `tag.py` tool is assumed to be in the same directory as `main.py` and `rename.py`.  You can adjust the tool path in `main.py` if needed.
+* The tool handles potential errors and logs them to `error.log`.
+
+## To Do
+
+* Export only for a specific tag.
+* Folder structure based on tags.
 
 ## Contributing
 
